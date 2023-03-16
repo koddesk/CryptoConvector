@@ -20,7 +20,6 @@ class CoinView: UIView {
     private let convectorView: UIView = {
         let view = UIView()
         view.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        view.widthAnchor.constraint(equalToConstant: 350).isActive = true
         view.backgroundColor = UIColor(named: "CoinViewColor")
         view.layer.cornerRadius = 15
         view.clipsToBounds = true
@@ -40,20 +39,20 @@ class CoinView: UIView {
         return imageView
     }()
     
-    private let numberLabel: UILabel = {
+    var numberLabel: UILabel = {
         let label = UILabel()
-        label.text = "..."
         label.textColor = .white
+        label.text = "..."
         label.font = .systemFont(ofSize: 25)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let nameCurrency: UILabel = {
+    var nameCurrency: UILabel = {
         let label = UILabel()
-        label.text = "USD"
         label.textColor = .white
+        label.text = ""
         label.font = .systemFont(ofSize: 25)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -63,6 +62,7 @@ class CoinView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         
         setupView()
         setConstraints()
